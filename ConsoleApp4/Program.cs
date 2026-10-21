@@ -9,6 +9,9 @@
         int age = Convert.ToInt32(Console.ReadLine());
         Viewer viewer = new(name: name, age: age, balance: 100, booking: []);
 
+        while (true)
+        { 
+        Console.Clear();
         Console.WriteLine("Выберите действие: ");
         Console.WriteLine("1. Показать фильмы");
         Console.WriteLine("2. Показать сеансы");
@@ -29,38 +32,41 @@
 
         string choice = Console.ReadLine();
         int action;
-        if (int.TryParse(choice, out action))
-        {
-            switch (action)
+
+            if (int.TryParse(choice, out action))
             {
-                case 1:
-                    foreach (var movie in movies)
-                    {
-                        movie.MovieInfo();
-                        Console.WriteLine("-----------------");
-                    }
-                    break;
-                case 2:
-                    Console.WriteLine("Сеансы");
-                    break;
-                case 3:
-                    Console.WriteLine("Билеты");
-                    break;
-                case 4:
-                    Console.WriteLine("Бронирования");
-                    break;
-                case 5:
-                    Console.WriteLine("Найти бронирование");
-                    break;
-                case 6:
-                    Console.WriteLine("Статистика");
-                    break;
-                case 7:
-                    Console.WriteLine("Проверка билетов");
-                    break;
-                case 8:
-                    Console.WriteLine("Выйти");
-                    return;
+                switch (action)
+                {
+                    case 1:
+                        foreach (var movie in movies)
+                        {
+                            movie.MovieInfo();
+                            Console.WriteLine("-----------------");
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("Сеансы");
+                        break;
+                    case 3:
+                        Console.WriteLine("Билеты");
+                        break;
+                    case 4:
+                        Console.WriteLine("Бронирования");
+                        break;
+                    case 5:
+                        Console.WriteLine("Найти бронирование");
+                        break;
+                    case 6:
+                        Console.WriteLine("Статистика");
+                        break;
+                    case 7:
+                        Console.WriteLine("Проверка билетов");
+                        break;
+                    case 8:
+                        Console.WriteLine("Выйти");
+                        return;
+                }
+                Console.ReadKey();
             }
         }
     }
